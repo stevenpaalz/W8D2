@@ -17,3 +17,23 @@ Array.prototype.myMap = function(callback) {
     }
     return answer;
 }
+
+Array.prototype.myReduce = function(callback, initialValue =  null) {
+	let i = 0;
+
+	if (initialValue === null) {
+		initialValue = this[0];
+		i = 1;
+	}
+
+	let accumulator = initialValue;
+	for (let j = i; j < this.length; j++) {
+		let ele = this[j];
+		accumulator = callback(accumulator, ele);
+	}
+	return accumulator
+}
+
+console.log([1, 2, 3, 4].myReduce(function(acc, el) {
+	return acc + el;
+}, 10));
