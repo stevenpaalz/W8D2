@@ -28,7 +28,7 @@ Array.prototype.twoSum = function() {
 }
 
 Array.prototype.transpose = function() {
-	const answer = new Array(this[0].length).fill([]);
+	const answer = Array.from(Array(this[0].length), () => []);
 
 	this.forEach((subArr, idx1) => {
 		subArr.forEach((ele, idx2) => {
