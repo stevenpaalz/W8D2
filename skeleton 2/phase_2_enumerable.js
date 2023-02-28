@@ -48,6 +48,6 @@ Array.prototype.myReduce = function(callback, initialValue =  null) {
 	// return accumulator
 }
 
-console.log([1, 2, 3, 4].myReduce(function(acc, el) {
-	return acc + el;
-}, 10));
+// console.log([1, 2, 3, 4].myReduce(function(acc, el) {
+// 	return acc + el;
+// }, 10));
