@@ -19,19 +19,33 @@ Array.prototype.myMap = function(callback) {
 }
 
 Array.prototype.myReduce = function(callback, initialValue =  null) {
-	let i = 0;
-
 	if (initialValue === null) {
 		initialValue = this[0];
-		i = 1;
+        new_array = this.slice(1, this.length)
+		// i = 1;
+        let accumulator = initialValue;
+        new_array.myEach((ele) => {
+            accumulator = callback(accumulator, ele);
+        });
+        return accumulator;
 	}
+    else {
+        let accumulator = initialValue;
+        this.myEach((ele) => {
+            accumulator = callback(accumulator, ele);
+        });
+        return accumulator;
+    }
 
-	let accumulator = initialValue;
-	for (let j = i; j < this.length; j++) {
-		let ele = this[j];
-		accumulator = callback(accumulator, ele);
-	}
-	return accumulator
+	// let accumulator = initialValue;
+    // this.myEach((ele) => {
+    //     accumulator = callback(accumulator, ele);
+
+	// for (let j = i; j < this.length; j++) {
+	// 	let ele = this[j];
+	// 	accumulator = callback(accumulator, ele);
+	// }
+	// return accumulator
 }
 
 console.log([1, 2, 3, 4].myReduce(function(acc, el) {
