@@ -40,4 +40,18 @@ const fibonacci = (n) => {
 	return last;
 }
 
-console.log(fibonacci(5));
+//console.log(fibonacci(5));
+
+const deepDup = (arr) => {
+	let answer = [];
+
+	arr.forEach((ele) => {
+		if (Array.isArray(ele)) {
+			answer.concat(deepDup(ele));
+		} else {
+			return ele;
+	}})
+	return answer; 
+}
+
+console.log(deepDup([1,2,[4,5]]))
